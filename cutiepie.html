@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Marry Me? ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e7,#fff0f6);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    text-align:center;
+    width:90%;
+    max-width:500px;
+}
+
+h1{
+    color:#ff2d75;
+    font-size:42px;
+}
+
+p{
+    margin:20px 0;
+    font-size:22px;
+    color:#444;
+}
+
+button{
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#yes{
+    background:#ff2d75;
+    color:white;
+}
+
+#yes:hover{
+    transform:scale(1.08);
+}
+
+#no{
+    background:#666;
+    color:white;
+    position:fixed;
+    left:55%;
+    top:60%;
+}
+
+.popup{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+}
+
+.popup-box{
+    background:white;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    animation:pop .4s ease;
+}
+
+.popup-box h2{
+    color:#ff2d75;
+    font-size:55px;
+}
+
+.popup-box p{
+    font-size:24px;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+    <h1>💍 WILL U MARRY ME BITCH? ❤️</h1>
+    <p>You are my cutiepau forever</p>
+
+    <button id="yes">Yes ❤️</button>
+</div>
+
+<button id="no">No 💔</button>
+
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h2>FUCK U AND I LOVE YOUU!! ❤️</h2>
+        <p>Thanks Darling! 💖💍🥰</p>
+    </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const popup = document.getElementById("popup");
+
+function moveButton(){
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+// Move whenever the mouse gets near it
+noBtn.addEventListener("mouseenter", moveButton);
+
+// Also move if someone somehow clicks it
+noBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    moveButton();
+});
+
+// Mobile support
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveButton();
+});
+
+yesBtn.addEventListener("click", function(){
+    popup.style.display = "flex";
+});
+
+popup.addEventListener("click", function(){
+    popup.style.display = "none";
+});
+</script>
+
+</body>
+</html>
